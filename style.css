@@ -582,8 +582,31 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ===================================================================
-   SKILLS SECTION
+   SKILLS, TOOLS & LANGUAGES SECTION
    =================================================================== */
+.skills-block {
+  margin-bottom: 40px;
+}
+.skills-block:last-child {
+  margin-bottom: 0;
+}
+
+.block-subtitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.block-subtitle::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
 .skills-wrap {
   display: flex;
   flex-wrap: wrap;
@@ -594,18 +617,18 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 20px;
+  padding: 12px 18px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 14px;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
   cursor: default;
   transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   opacity: 0;
   transform: translateY(20px) scale(0.95);
   animation: pill-in 0.5s forwards;
-  animation-delay: calc(var(--i) * 80ms + 200ms);
+  animation-delay: calc(var(--i) * 60ms + 100ms);
 }
 @keyframes pill-in {
   to { opacity: 1; transform: translateY(0) scale(1); }
@@ -613,10 +636,128 @@ a { color: inherit; text-decoration: none; }
 .skill-pill:hover {
   border-color: var(--border-accent);
   background: var(--surface-2);
-  transform: translateY(-3px) scale(1.03);
+  transform: translateY(-3px) scale(1.02);
   box-shadow: 0 8px 24px rgba(124,58,237,0.12);
 }
 .skill-pill span { font-size: 1.1rem; }
+
+/* Tools Grid */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.tool-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: all 0.25s ease;
+}
+.tool-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-3px);
+  background: var(--surface-2);
+  box-shadow: 0 8px 24px rgba(124,58,237,0.1);
+}
+
+.tool-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  transition: transform 0.25s ease;
+}
+.tool-card:hover .tool-icon-box {
+  transform: scale(1.08);
+}
+
+/* Tool specific colors */
+.icon-slack { color: #ECB22E; background: rgba(74, 21, 75, 0.2); border-color: rgba(224, 30, 90, 0.3); }
+.icon-meet { color: #00AC47; background: rgba(0, 172, 71, 0.12); border-color: rgba(0, 172, 71, 0.3); }
+.icon-zoom { color: #2D8CFF; background: rgba(45, 140, 255, 0.12); border-color: rgba(45, 140, 255, 0.3); }
+.icon-dialpad { color: #A78BFA; background: rgba(124, 58, 237, 0.15); border-color: rgba(124, 58, 237, 0.35); }
+.icon-word { color: #2B579A; background: rgba(43, 87, 154, 0.15); border-color: rgba(43, 87, 154, 0.3); }
+.icon-excel { color: #107C41; background: rgba(16, 124, 65, 0.15); border-color: rgba(16, 124, 65, 0.3); }
+.icon-drive { color: #FFBA00; background: rgba(255, 186, 0, 0.12); border-color: rgba(255, 186, 0, 0.3); }
+.icon-canva { color: #00C4CC; background: rgba(0, 196, 204, 0.12); border-color: rgba(0, 196, 204, 0.3); }
+.icon-gmail { color: #EA4335; background: rgba(234, 67, 53, 0.12); border-color: rgba(234, 67, 53, 0.3); }
+
+.tool-meta {
+  display: flex;
+  flex-direction: column;
+}
+.tool-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.tool-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Languages Grid */
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.lang-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: all 0.25s ease;
+}
+.lang-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-2px);
+  background: var(--surface-2);
+}
+.lang-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+.lang-details {
+  flex: 1;
+}
+.lang-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.lang-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.lang-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 100px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.lang-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
 
 /* ===================================================================
    EDUCATION SECTION
@@ -832,6 +973,8 @@ a { color: inherit; text-decoration: none; }
   .float-card { display: none; }
   .hero-name { font-size: 2.4rem; }
   .stat-1, .stat-2, .stat-3 { display: none; }
+  .tools-grid { grid-template-columns: 1fr; }
+  .languages-grid { grid-template-columns: 1fr; }
 }
 
 /* ===================================================================

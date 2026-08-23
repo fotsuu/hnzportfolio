@@ -17,10 +17,10 @@ themeBtn.addEventListener('click', () => {
    TYPING ANIMATION (HERO ROLE)
    =================================================================== */
 const roles = [
-  'Customer Service Representative',
-  'Transcriber & Subtitle Editor',
   'Virtual Assistant',
-  'Sabre GDS Certified',
+  'E-Commerce Customer Support',
+  'Transcriber & Subtitle Specialist',
+  'Email & Calendar Management Specialist',
 ];
 
 let rIdx = 0, cIdx = 0, deleting = false;
