@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hienz A. Caballes | Virtual Assistant & Customer Support Specialist</title>
   <meta name="description" content="Portfolio of Hienz A. Caballes — Virtual Assistant, E-Commerce Customer Support Specialist, Transcriber, and BS Tourism Management Magna Cum Laude." />
+  <meta name="theme-color" content="#070912" />
+  <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=2" />
 </head>
 <body>
 
@@ -25,7 +27,7 @@
     <div class="nav-inner">
       <span class="nav-brand">H<span class="dot">.</span></span>
       <div class="nav-actions">
-        <nav class="nav-links" aria-label="Page sections">
+        <nav class="nav-links" id="navLinks" aria-label="Page sections">
           <a href="#hero" class="nav-link active" data-section="hero">About</a>
           <a href="#experience" class="nav-link" data-section="experience">Work</a>
           <a href="#skills" class="nav-link" data-section="skills">Skills & Tools</a>
@@ -35,6 +37,11 @@
         <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
           <span class="theme-icon sun">☀</span>
           <span class="theme-icon moon">☽</span>
+        </button>
+        <button class="menu-btn" id="menuToggle" type="button" aria-label="Open navigation" aria-controls="navLinks" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
     </div>
@@ -92,17 +99,19 @@
           </div>
 
           <!-- Floating stat cards -->
-          <div class="stat-card stat-1 float-card">
-            <span class="stat-number" data-target="2">0</span>
-            <span class="stat-label">Active Remote Roles</span>
-          </div>
-          <div class="stat-card stat-2 float-card">
-            <span class="stat-icon">🏅</span>
-            <span class="stat-label">Magna Cum Laude</span>
-          </div>
-          <div class="stat-card stat-3 float-card">
-            <span class="stat-number" data-target="9">0</span>
-            <span class="stat-label">Core Tools Mastered</span>
+          <div class="hero-stats">
+            <div class="stat-card stat-1 float-card">
+              <span class="stat-number" data-target="2">0</span>
+              <span class="stat-label">Active Remote Roles</span>
+            </div>
+            <div class="stat-card stat-2 float-card">
+              <span class="stat-icon">🏅</span>
+              <span class="stat-label">Magna Cum Laude</span>
+            </div>
+            <div class="stat-card stat-3 float-card">
+              <span class="stat-number" data-target="9">0</span>
+              <span class="stat-label">Core Tools Mastered</span>
+            </div>
           </div>
         </div>
 
@@ -117,7 +126,7 @@
 
         <!-- DoorDash -->
         <div class="exp-card active" data-job="doordash">
-          <div class="exp-card-head">
+          <div class="exp-card-head" role="button" tabindex="0" aria-expanded="true">
             <div class="exp-logo-box logo-doordash">DD</div>
             <div class="exp-title-block">
               <h3>DOORDASH (Customer Service)</h3>
@@ -127,9 +136,9 @@
               <span class="exp-date-tag">Jan 2026 – Present</span>
               <span class="exp-type-tag">Freelance | Remote</span>
             </div>
-            <button class="exp-toggle" aria-label="Toggle details">
+            <span class="exp-toggle" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
+            </span>
           </div>
           <div class="exp-body">
             <ul class="exp-bullets">
@@ -144,7 +153,7 @@
 
         <!-- DittoDub -->
         <div class="exp-card" data-job="dittodub">
-          <div class="exp-card-head">
+          <div class="exp-card-head" role="button" tabindex="0" aria-expanded="false">
             <div class="exp-logo-box logo-ditto">DU</div>
             <div class="exp-title-block">
               <h3>DITTODUB (Transcriber)</h3>
@@ -154,9 +163,9 @@
               <span class="exp-date-tag">Dec 2025 – Present</span>
               <span class="exp-type-tag">Freelance | Remote</span>
             </div>
-            <button class="exp-toggle" aria-label="Toggle details">
+            <span class="exp-toggle" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
+            </span>
           </div>
           <div class="exp-body">
             <ul class="exp-bullets">
@@ -170,7 +179,7 @@
 
         <!-- Hotel OJT -->
         <div class="exp-card" data-job="hotel">
-          <div class="exp-card-head">
+          <div class="exp-card-head" role="button" tabindex="0" aria-expanded="false">
             <div class="exp-logo-box logo-hotel">A1</div>
             <div class="exp-title-block">
               <h3>Avenue One Hotel</h3>
@@ -180,9 +189,9 @@
               <span class="exp-date-tag">Apr – Jun 2025</span>
               <span class="exp-type-tag">On-Site</span>
             </div>
-            <button class="exp-toggle" aria-label="Toggle details">
+            <span class="exp-toggle" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
+            </span>
           </div>
           <div class="exp-body">
             <ul class="exp-bullets">
@@ -502,6 +511,6 @@
 
   <button class="back-top" id="backToTop" aria-label="Back to top">↑</button>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>

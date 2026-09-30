@@ -14,6 +14,31 @@ themeBtn.addEventListener('click', () => {
 });
 
 /* ===================================================================
+   MOBILE NAVIGATION
+   =================================================================== */
+const menuBtn = document.getElementById('menuToggle');
+const nav = document.getElementById('nav');
+
+function closeMenu() {
+  nav.classList.remove('menu-open');
+  menuBtn.setAttribute('aria-expanded', 'false');
+  menuBtn.setAttribute('aria-label', 'Open navigation');
+  document.body.classList.remove('nav-open');
+}
+
+menuBtn.addEventListener('click', () => {
+  const isOpen = nav.classList.toggle('menu-open');
+  menuBtn.setAttribute('aria-expanded', String(isOpen));
+  menuBtn.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+  document.body.classList.toggle('nav-open', isOpen);
+});
+
+document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', closeMenu));
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeMenu();
+});
+
+/* ===================================================================
    TYPING ANIMATION (HERO ROLE)
    =================================================================== */
 const roles = [
@@ -105,12 +130,26 @@ sections.forEach(id => {
    =================================================================== */
 document.querySelectorAll('.exp-card').forEach(card => {
   const head = card.querySelector('.exp-card-head');
-  head.addEventListener('click', () => {
+  const toggleCard = () => {
     const isOpen = card.classList.contains('active');
     // Close all
-    document.querySelectorAll('.exp-card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.exp-card').forEach(c => {
+      c.classList.remove('active');
+      c.querySelector('.exp-card-head').setAttribute('aria-expanded', 'false');
+    });
     // Toggle clicked
-    if (!isOpen) card.classList.add('active');
+    if (!isOpen) {
+      card.classList.add('active');
+      head.setAttribute('aria-expanded', 'true');
+    }
+  };
+
+  head.addEventListener('click', toggleCard);
+  head.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      toggleCard();
+    }
   });
 });
 
@@ -121,6 +160,7 @@ const backBtn = document.getElementById('backToTop');
 
 window.addEventListener('scroll', () => {
   backBtn.classList.toggle('show', window.scrollY > 400);
+  nav.classList.toggle('scrolled', window.scrollY > 12);
 }, { passive: true });
 
 backBtn.addEventListener('click', () => {
